@@ -123,10 +123,10 @@ contract Subscription is Ownable, ReentrancyGuard {
         if (amount == 0) revert ZeroAmount();
         uint256 contractBalance = USDTToken.balanceOf(address(this));
         if (amount > contractBalance) revert InsufficientBalance();
-        // Ensure the latest subscription has expired
-        if (block.timestamp < latestSubscriptionEndTime) {
-            revert WithdrawBeforeSubscriptionEnd();
-        }
+        // // Ensure the latest subscription has expired
+        // if (block.timestamp < latestSubscriptionEndTime) {
+        //     revert WithdrawBeforeSubscriptionEnd();
+        // }
 
         bool success = USDTToken.transfer(owner(), amount);
         if (!success) revert TransferFailed();
