@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import {Test, console} from "../lib/forge-std/src/Test.sol";
-import {Subscription} from "../src/Subscription.sol";
+import {Subscription} from "../src/subscription.sol";
 import {MockUSDT} from "../test/MockUSDT.sol";
 
 contract SubscriptionTest is Test {
