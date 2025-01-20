@@ -12,6 +12,7 @@ abstract contract Ownable {
     address private _owner;
 
     error Unauthorized();
+
     event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
     constructor(address initialOwner) {
@@ -112,7 +113,6 @@ contract Subscription is Ownable, ReentrancyGuard {
             latestSubscriptionEndTime = endTime;
         }
 
-
         subscribers[msg.sender] = Subscriber(startTime, endTime);
         totalSubscribers++;
 
@@ -151,5 +151,4 @@ contract Subscription is Ownable, ReentrancyGuard {
     function getBalance() external view returns (uint256) {
         return USDTToken.balanceOf(address(this));
     }
-
 }

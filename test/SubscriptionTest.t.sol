@@ -62,7 +62,11 @@ contract SubscriptionTest is Test {
         uint256 contractBalance = mockUSDT.balanceOf(address(subscription));
         uint256 ownerInitialBalance = mockUSDT.balanceOf(owner);
         subscription.withdraw(contractBalance);
-        assertEq(mockUSDT.balanceOf(owner), ownerInitialBalance + contractBalance, "Owner should receive the withdrawn amount");
+        assertEq(
+            mockUSDT.balanceOf(owner),
+            ownerInitialBalance + contractBalance,
+            "Owner should receive the withdrawn amount"
+        );
     }
 
     // function testWithdrawBeforeSubscriptionEnd() public {
